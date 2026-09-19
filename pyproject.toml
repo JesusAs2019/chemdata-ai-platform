@@ -1,0 +1,25 @@
+[project]
+name = "chemdata-ai-platform"
+version = "0.2.0"
+description = "Deterministic valuation engines, market intelligence workflows, and compliance-aware retrieval for energy, commodities, and capital markets."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pydantic>=2.7,<3.0",
+  "pandas>=2.2,<3.0",
+  "plotly>=5.24,<6.0",
+  "streamlit>=1.38,<2.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2,<9.0"
+]
+
+[project.scripts]
+chemdata-platform = "chemdata_ai_platform.main:run"
+chemdata-platform-dashboard = "chemdata_ai_platform.app:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
