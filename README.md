@@ -16,9 +16,9 @@
 
 ### **Why ChemData AI Matters**
 
-• Institutional Valuation & Intelligence: Delivers deterministic, audit-ready pricing and valuation engines alongside real-time market intelligence tailored for highly volatile energy and commodity sectors.
-• Production-Ready Trading Architecture: Centralizes critical quantitative tooling and high-throughput workflows into a single, scalable repository.
-• Automated Compliance Triage: Deploys sophisticated, compliance-aware retrieval systems to instantly triage legal, regulatory, and operational risk scenarios.
++ Institutional Valuation & Intelligence: Delivers deterministic, audit-ready pricing and valuation engines alongside real-time market intelligence tailored for highly volatile energy and commodity sectors.
++ Production-Ready Trading Architecture: Centralizes critical quantitative tooling and high-throughput workflows into a single, scalable repository.
++ Automated Compliance Triage: Deploys sophisticated, compliance-aware retrieval systems to instantly triage legal, regulatory, and operational risk scenarios.
 
 🌐 **Live Production App:** [https://chemdata-ai-platform.streamlit.app/](https://chemdata-ai-platform.streamlit.app/)  
 📄 **Institutional QA Memo:** [Download Verification Report (PDF)](https://www.genspark.ai/api/files/s/He96QVQf)
@@ -135,8 +135,6 @@ pip install -e .
 ## Run test suite (100% pass verification)
 
 python -m pytest -v
-
-bash```
 
 ## 2. **Standalone CLI Commands**
 
