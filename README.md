@@ -103,6 +103,8 @@ chemdata-ai-platform/
    ├─ test_market_intelligence.py
    └─ test_valuation.py
 
+```
+
 ## 🛠️ **Tech Stack & Engineering Standards**
 
 **Language**: Python 3.12+ (for the application core, type-annotated, modern packaging)
@@ -112,27 +114,29 @@ chemdata-ai-platform/
 **User Interface**: Streamlit (Multi-Tab Operator Suite, for an interactive portfolio-facing front end)
 **Testing**: Pytest (for deterministic unit tests: 100% deterministic test pass across all modules)
 
-
 ## 💻 **CLI Usage & Quickstart**
 
 ### 1. **Installation & Environment Setup**
 
-# **Clone repository**
+## **Clone repository**
 
 git clone https://github.com/JesusAs2019/chemdata_ai_platform.git
 cd chemdata_ai_platform
 
-# Create & activate virtual environment
+## Create & activate virtual environment
+
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\Activate.ps1
 
-# Install in editable mode
+## Install in editable mode
+
 pip install -e .
 
-# Run test suite (100% pass verification)
+## Run test suite (100% pass verification)
+
 python -m pytest -v
 
-```
+bash```
 
 ## 2. **Standalone CLI Commands**
 
@@ -206,18 +210,18 @@ CFTC Dodd-Frank Act: cftc.gov/LawRegulation/DoddFrankAct
 
 ## 🚀 **Future Roadmap & Phase 2 Expansion**
 
- -Hybrid semantic embeddings (FinBERT) for nuanced natural language regulatory triage.
- -Real-time regulatory feed ingestion (automated EU Official Journal & CFTC rule updates).
- -Multi-commodity option pricing models (Black-76 / Bachelier for crack and spark spreads).
- -Counterparty Credit Risk (CCR) and PFE (Potential Future Exposure) stress-testing engines.
+ - Hybrid semantic embeddings (FinBERT) for nuanced natural language regulatory triage.
+ - Real-time regulatory feed ingestion (automated EU Official Journal & CFTC rule updates).
+ - Multi-commodity option pricing models (Black-76 / Bachelier for crack and spark spreads).
+ - Counterparty Credit Risk (CCR) and PFE (Potential Future Exposure) stress-testing engines.
 
 ## Other Next expansion ideas
 
-+scenario libraries for LNG, power, emissions, and refinery economics
-+optional FastAPI service layer
-+vector or citation-backed compliance retrieval
-+counterparty exposure and stress testing modules
-+downloadable committee memo exports
++ scenario libraries for LNG, power, emissions, and refinery economics
++ optional FastAPI service layer
++ vector or citation-backed compliance retrieval
++ counterparty exposure and stress testing modules
++ downloadable committee memo exports
 
 ## 👨‍💻 **Engineering Leadership & Practice**
 
