@@ -125,21 +125,25 @@ cd chemdata_ai_platform
 
 ## Create & activate virtual environment
 
+```bash
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\Activate.ps1
 
 ## Install in editable mode
 
+```bash
 pip install -e .
 
 ## Run test suite (100% pass verification)
 
+```bash
 python -m pytest -v
 
 ## 2. **Standalone CLI Commands**
 
 ### **Contract Valuation & Sensitivity**
 
+```bash
 python -m chemdata_ai_platform.valuation --contract "Q1 Baseload Hedge" --volume 5000 --price 78.0 --rate 0.08 --bump 5.0
 
 ### **Regulatory Compliance Scenario Check**
