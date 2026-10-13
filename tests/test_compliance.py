@@ -1,13 +1,25 @@
-from chemdata_ai_platform.compliance import compliance_report, score_regulations
+"""Unit tests for Layer 02: Compliance Triage Engine."""
+
+from chemdata_ai_platform.compliance import check_compliance_scenario
 
 
-def test_remit_and_mar_can_match_inside_information_text():
-    results = score_regulations("Potential inside information and market manipulation in wholesale energy trading")
-    codes = [item["code"] for item in results]
-    assert "REMIT" in codes
-    assert "MAR" in codes
+def test_remit_insider_trading_scenario():
+    scenario = "A trader receives non-public information about an unplanned outage at a major European gas facility and enters positions in wholesale gas contracts before disclosure."
+    res = check_compliance_scenario(scenario)
+    assert res.is_flagged is True
+    assert "ACER REMIT" in res.matched_frameworks
+    assert any("Article 3" in c.clause for c in res.citations)
 
 
-def test_compliance_report_returns_empty_match_when_irrelevant():
-    report = compliance_report("General discussion about weather patterns and office planning")
-    assert report["matches"] == []
+def test_mifid_algo_trading_scenario():
+    scenario = "An investment firm uses algorithmic execution strategies on an EU trading venue and needs pre-trade risk controls."
+    res = check_compliance_scenario(scenario)
+    assert res.is_flagged is True
+    assert "MiFID II Directive" in res.matched_frameworks
+
+
+def test_dodd_frank_swaps_scenario():
+    scenario = "A derivatives desk is reviewing uncleared swap activity, margin obligations, and whether the firm's swap dealer controls align with US expectations."
+    res = check_compliance_scenario(scenario)
+    assert res.is_flagged is True
+    assert "CFTC Dodd-Frank Act" in res.matched_frameworks

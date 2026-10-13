@@ -63,15 +63,33 @@ def main():
         st.plotly_chart(fig, use_container_width=True)
 
     with tab2:
-        st.subheader("Compliance scenario checker")
+        st.subheader("Compliance Scenario Checker")
+        st.caption("Deterministic regulatory triage mapped to ACER REMIT, MAR, MiFID II, and CFTC Dodd-Frank.")
+        
         scenario = st.text_area(
             "Scenario text",
-            value="Possible inside information in wholesale gas trading before public disclosure and suspicious price movement.",
-            height=150,
+            value="A trader receives non-public information about an unplanned outage at a major European gas facility and enters positions in wholesale gas contracts before the outage is publicly disclosed.",
+            height=130,
         )
-        report = compliance_report(scenario)
-        st.write(report["summary"])
-        st.json(report)
+        
+        from chemdata_ai_platform.compliance import check_compliance_scenario
+        
+        if scenario:
+            result = check_compliance_scenario(scenario)
+            
+            if result.is_flagged:
+                st.warning(f"⚠️ **{result.summary}**")
+                
+                # Display detailed Clause expanders with clickable official links
+                for cit in result.citations:
+                    with st.expander(f"📌 {cit.framework} — {cit.clause}: {cit.title}", expanded=True):
+                        st.markdown(f"**Regulatory Rationale:** {cit.rationale}")
+                        st.markdown(f"**Official Rulebook Reference:** [{cit.reference_url}]({cit.reference_url})")
+            else:
+                st.info(f"ℹ️ {result.summary}")
+            
+            with st.expander("Raw Triage JSON Payload"):
+                st.json(result.model_dump())
 
     with tab3:
         st.subheader("Market intelligence pack")
