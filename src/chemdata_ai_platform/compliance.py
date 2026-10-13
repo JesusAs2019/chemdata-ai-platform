@@ -155,3 +155,18 @@ def check_compliance_scenario(scenario_text: str) -> ComplianceTriageResult:
         citations=matched_citations,
         recommended_action=rec_action
     )
+
+def compliance_report(scenario_text: str) -> Dict[str, Any]:
+    """
+    Backward-compatible wrapper for market_intelligence and legacy modules.
+    Returns standard dictionary with summary, matched frameworks, and citations.
+    """
+    result = check_compliance_scenario(scenario_text)
+    return {
+        "input_text": result.input_text,
+        "is_flagged": result.is_flagged,
+        "summary": result.summary,
+        "matches": result.matched_frameworks,
+        "citations": [c.model_dump() for c in result.citations],
+        "next_step": result.recommended_action
+    }
